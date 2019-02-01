@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './plugins/element.js'
-
+import '@/styles/index.less'
+import '@/utils/fontSize'
 Vue.config.productionTip = false
 
 new Vue({
