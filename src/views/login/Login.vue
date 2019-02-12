@@ -2,7 +2,7 @@
 .login_content{
     width: 375px;
     font-size: .14rem;
-    margin-bottom: 30%;
+    margin: .5rem auto;
     .loginOther {
         margin: 22px 0;
         padding-left: 70px;
@@ -12,7 +12,6 @@
         }
         span {
             float: right;
-            font-size: 0.7rem;
             color: #1890ff;
             cursor: pointer;
         }
@@ -20,7 +19,6 @@
     .register {
         text-align: right;
         span {
-            font-size: 0.7rem;
             color: #1890ff;
             cursor: pointer;
         }
