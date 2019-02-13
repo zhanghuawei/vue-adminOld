@@ -1,6 +1,6 @@
 const user = {
     state: {
-        user: ''
+        show: '123'
     }
 }
 export default user

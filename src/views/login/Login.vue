@@ -1,4 +1,7 @@
 <style lang="less" scoped>
+body {
+    background: url('@/imgs/bg.jpg')
+}
 .login_content{
     width: 375px;
     font-size: .14rem;
@@ -88,6 +91,7 @@
                 <el-button type="primary" @click="submitForm('phone')">确 定</el-button>
             </span>
         </el-dialog>
+
     </div>
 </template>
 <script>
