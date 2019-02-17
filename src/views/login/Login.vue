@@ -1,7 +1,4 @@
 <style lang="less" scoped>
-body {
-    background: url('@/imgs/bg.jpg')
-}
 .login_content{
     width: 375px;
     font-size: .14rem;
@@ -70,28 +67,7 @@ body {
             <div class="register">
                 <router-link tag="span" to="/register">还没有账户，马上注册</router-link>
             </div>
-
         </el-form>
-        <el-dialog class="informationForm" title="信息验证" :visible.sync="dialogVisible"  width="480px" lock-scroll>
-            <span>
-                <el-form  ref="phone" :model="phone" :rules="rules" :label-position='labelPosition' label-width="100px" class="demo-ruleForm">
-                    <el-form-item label="手机号码：">{{phone.phoneNum}}</el-form-item>
-                    <el-form-item label="验证码：" prop="code">
-                        <el-col :span="12">
-                            <el-input type="code" v-model.number="phone.code" autocomplete="off" placeholder="输入验证码"></el-input>
-                        </el-col>
-                        <el-col :span="8" class="validateNO">
-                            <el-button  @click="getCode('getCodeID')" id="getCodeID" ref="getCodeID">{{codeShow}}</el-button>
-                        </el-col>
-                    </el-form-item>
-                </el-form>
-            </span>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="submitForm('phone')">确 定</el-button>
-            </span>
-        </el-dialog>
-
     </div>
 </template>
 <script>
