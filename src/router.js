@@ -24,6 +24,7 @@ export default new Router({
             name: 'home',
             asideShow: true,
             component: Layout,
+            meta: { title: '测试', icon: 'dashboard', noCache: true, affix: true },
             children: [
                 {
                     path: '',
@@ -36,6 +37,19 @@ export default new Router({
             name: 'about',
             asideShow: true,
             component: Layout,
+            meta: { title: '测试2', icon: 'dashboard', noCache: true, affix: true },
+            children: [
+                {
+                    path: '',
+                    component: () => import('@/views/demo/About')
+                }
+            ]
+        }, {
+            path: '/dashboard',
+            name: 'about',
+            asideShow: true,
+            component: Layout,
+            meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true },
             children: [
                 {
                     path: '',
