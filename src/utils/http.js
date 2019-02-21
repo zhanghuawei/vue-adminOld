@@ -5,7 +5,7 @@ import store from '../store/index'
 
 // 创建axios实例
 const http = axios.create({
-    baseURL: 'https://easy-mock.com/mock/5c2709b7c47a223b9fc3e9f2/lybzj', timeout: 6000 // 请求超时时间 //  https://easy-mock.com/mock/5c2709b7c47a223b9fc3e9f2/lybzj http://18.141.69.212:20091/management
+    baseURL: 'https://easy-mock.com/mock/5c63c8fa2ecb0b58465e3470/vue-admin', timeout: 6000 // 请求超时时间
 })
 
 // 拦截器可以在.then()或者.catch()之前对请求/返回的数据进行处理

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div  class="width_height_100">
         <router-view/>
     </div>
 </template>
