@@ -1,5 +1,4 @@
 <style lang="less" scoped>
-<<<<<<< HEAD
 .bg {
     width: 100%;
     height: 100%;
@@ -7,8 +6,6 @@
     background: url('../../imgs/bg.jpg') no-repeat center fixed;
     background-size: cover;
 }
-=======
->>>>>>> 85bd6d7a9505d05d8b2f3abea77dc82de601e61f
 .login_content{
     width: 3rem;
     font-size: .14rem;
@@ -52,30 +49,6 @@
 <template>
 <div class="bg">
     <div class="login_content">
-<<<<<<< HEAD
-        <div class="width_220">
-            <div class="login_name">登录</div>
-            <el-form :model="loginData" :rules="rules" ref="loginData" :label-position='labelPosition' label-width="0px" class="demo-ruleForm">
-                <el-form-item prop="loginName">
-                    <el-input type="text" v-model="loginData.loginName" autocomplete="off" placeholder="请输入证号/注册账号/登录名"></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input type="password" v-model="loginData.password" autocomplete="off" placeholder="请输入密码"></el-input>
-                </el-form-item>
-                <div class="loginOther clearfix">
-                    <el-checkbox v-model="checked">记住我</el-checkbox>
-                    <router-link tag="span" to="/find_password">忘记密码</router-link>
-                </div>
-                <el-form-item>
-                    <el-button type="primary" @click="submitLogin('loginData')">提交</el-button>
-                </el-form-item>
-                <div class="register">
-                    <router-link tag="span" to="/register">还没有账户，马上注册</router-link>
-                </div>
-
-            </el-form>
-            </div>
-=======
         <div class="login_name">登录</div>
         <el-form :model="loginData" :rules="rules" ref="loginData" :label-position='labelPosition' label-width="80px" class="demo-ruleForm">
             <el-form-item label="用户名：" prop="loginName">
@@ -96,7 +69,6 @@
                 <router-link tag="span" to="/register">还没有账户，马上注册</router-link>
             </div>
         </el-form>
->>>>>>> 85bd6d7a9505d05d8b2f3abea77dc82de601e61f
     </div>
 </div>
 </template>
