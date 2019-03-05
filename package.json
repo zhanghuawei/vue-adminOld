@@ -40,7 +40,7 @@
     "rules": {
       "indent": [
         1,
-        2
+        4
       ],
       "space-before-function-paren": [
         2,

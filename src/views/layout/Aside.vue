@@ -1,5 +1,4 @@
 
-
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
     <el-menu
@@ -17,13 +16,13 @@
 import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.less'
 export default {
-    name:'Aside',
+    name: 'Aside',
     data() {
         return {
             isCollapse: '2'
         }
     },
-    components:{
+    components: {
         SidebarItem
     },
     computed: {
@@ -32,7 +31,7 @@ export default {
         },
         variables() {
             return variables
-        },
+        }
     },
     mounted() {
         console.log(variables)

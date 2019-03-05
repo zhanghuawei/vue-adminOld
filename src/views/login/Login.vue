@@ -43,49 +43,49 @@ import { login } from '@/api/login.js'
 import validator from '@/utils/validator.js'
 // import { promptMessage } from '@/utils/publicFunction.js'
 let validatorInput = (rule, value, callback) => {
-  validator.check_character(rule, value, callback)
+    validator.check_character(rule, value, callback)
 }
 export default {
-  data() {
-    return {
-      labelPosition: 'right',
-      checked: false,
-      dialogVisible: false,
-      loginData: {
-        username: 'admin',
-        password: '111111'
-      },
-      rules: {
-        username: [
-          { required: true, message: '请输入用户名', trigger: 'change' },
-          { min: 0, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' },
-          { validator: validatorInput, trigger: 'change' }
-        ],
-        password: [
-          { required: true, message: '请输入密码', trigger: 'change' },
-          { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' },
-          { validator: validatorInput, trigger: 'change' }
-        ]
-      }
-    }
-  },
-  beforeMount() {
-    this.loginData.loginName = localStorage.getItem('username')
-  },
-  methods: {
-    submitLogin(formName) {
-      console.log(login)
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          login(this.loginData).then((res) => {
-            if (res.code === '000000') {
-              this.$router.push('/dashboard')
+    data() {
+        return {
+            labelPosition: 'right',
+            checked: false,
+            dialogVisible: false,
+            loginData: {
+                username: 'admin',
+                password: '111111'
+            },
+            rules: {
+                username: [
+                    { required: true, message: '请输入用户名', trigger: 'change' },
+                    { min: 0, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' },
+                    { validator: validatorInput, trigger: 'change' }
+                ],
+                password: [
+                    { required: true, message: '请输入密码', trigger: 'change' },
+                    { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' },
+                    { validator: validatorInput, trigger: 'change' }
+                ]
             }
-          })
         }
-      })
+    },
+    beforeMount() {
+        this.loginData.loginName = localStorage.getItem('username')
+    },
+    methods: {
+        submitLogin(formName) {
+            console.log(login)
+            this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    login(this.loginData).then((res) => {
+                        if (res.code === '000000') {
+                            this.$router.push('/dashboard')
+                        }
+                    })
+                }
+            })
+        }
     }
-  }
 }
 </script>
 <style lang="less" scoped>
