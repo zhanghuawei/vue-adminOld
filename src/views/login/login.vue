@@ -8,7 +8,7 @@
         <el-input v-model="formLabelAlign.password"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary">登陆</el-button>
+        <el-button type="primary" @click="submit">登陆</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -21,6 +21,9 @@ export default {
       labelPosition: "right",
       formLabelAlign: {}
     };
+  },
+  methods: {
+    submit() {}
   }
 };
 </script>
