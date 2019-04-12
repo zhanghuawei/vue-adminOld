@@ -1,3 +1,3 @@
 <template>
-  <div>layout</div>
+  <div>tabs-view</div>
 </template>

@@ -1,6 +1,10 @@
 <template>
   <div class="login">
-    <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+    <el-form
+      :label-position="labelPosition"
+      label-width="80px"
+      :model="formLabelAlign"
+    >
       <el-form-item label="用户名">
         <el-input v-model="formLabelAlign.username"></el-input>
       </el-form-item>
