@@ -3,36 +3,45 @@
     <el-form
       :label-position="labelPosition"
       label-width="80px"
-      :model="formLabelAlign"
+      :model="loginData"
     >
       <el-form-item label="用户名">
-        <el-input v-model="formLabelAlign.username"></el-input>
+        <el-input v-model="loginData.username" />
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="formLabelAlign.password"></el-input>
+        <el-input v-model="loginData.password" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submit">登陆</el-button>
+        <el-button type="primary" @click="submit">
+          登陆
+        </el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
+
 <script>
+import { userLogin } from '@/api/api.js'
+
 export default {
-  name: "login",
+  name: 'Login',
   data() {
     return {
-      labelPosition: "right",
-      formLabelAlign: {}
-    };
+      labelPosition: 'right',
+      loginData: {}
+    }
   },
   methods: {
     submit() {
-      this.$store.dispatch("login");
+      userLogin(this.loginData).then(res => {
+        this.$store.dispatch('login', res.data)
+        this.$router.push('/index')
+      })
     }
   }
-};
+}
 </script>
+
 <style lang="scss">
 .login {
   width: 300px;

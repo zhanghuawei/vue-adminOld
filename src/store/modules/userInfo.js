@@ -1,23 +1,21 @@
-export { setToken, getToken, removeToken } from "@/utils/auth.js";
-export { userLogin } from "@/api/api.js";
+import { setToken, getToken, removeToken } from '@/utils/auth.js'
+
 const userInfo = {
   state: {
-    username: ""
+    username: ''
   },
+
   mutations: {
     set_username(state, val) {
-      state.username = val;
+      state.username = val
     }
   },
+
   actions: {
-    login(content, data) {
-      return new Promise((resolve, reject) => {
-        userLogin(data).then(res => {
-          setToken(res.data.token);
-        });
-      });
+    login({ commit }, data) {
+      setToken(data.token)
     }
   }
-};
+}
 
-export default userInfo;
+export default userInfo

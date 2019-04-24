@@ -1,13 +1,13 @@
-const TokenKey = "Admin-Token";
-
-export function getToken() {
-  return sessionStorage.getItem("TokenKey");
-}
+const TokenKey = 'Admin-Token'
 
 export function setToken(token) {
-  return sessionStorage.setItem(TokenKey, token);
+  return sessionStorage.setItem(TokenKey, token)
+}
+
+export function getToken() {
+  return sessionStorage.getItem(TokenKey)
 }
 
 export function removeToken() {
-  return sessionStorage.removeItem(TokenKey);
+  return sessionStorage.removeItem(TokenKey)
 }
