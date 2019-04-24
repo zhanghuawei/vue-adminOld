@@ -27,7 +27,9 @@ export default {
     };
   },
   methods: {
-    submit() {}
+    submit() {
+      this.$store.dispatch("login");
+    }
   }
 };
 </script>
