@@ -33,8 +33,8 @@ export default {
   },
   methods: {
     submit() {
-      userLogin(this.loginData).then(res => {
-        this.$store.dispatch('login', res.data)
+      this.$store.dispatch('login', this.loginData).then(res => {
+        debugger
         this.$router.push('/index')
       })
     }
