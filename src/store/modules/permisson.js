@@ -1,5 +1,17 @@
 import { constantRouterMap, asyncRouterMap } from '@/router/router'
 
+export function permission(roles, route) {
+  return new Promise(resolve => {
+    const arr = []
+    asyncRouterMap.forEach(route => {
+      if (roles.some(role => route.meta.role.includes(role))) {
+        arr.push(route)
+      }
+    })
+    resolve(arr)
+  })
+}
+
 /**
  * 通过meta.role普安段是否与当前的用户权限匹配
  * @param roles
@@ -33,7 +45,7 @@ function filterAsyncRouter(routes, roles) {
   return res
 }
 
-const permission = {
+const permission1 = {
   state: {
     routers: [],
     addRouters: []
@@ -45,9 +57,8 @@ const permission = {
     }
   },
   actions: {
-    GenerateRoutes({ commit }, data) {
+    GenerateRoutes({ commit }, roles) {
       return new Promise(resolve => {
-        const { roles } = data
         let accessedRouters
         if (roles.includes('admin')) {
           accessedRouters = asyncRouterMap
@@ -61,5 +72,5 @@ const permission = {
   }
 }
 
-export default permission
+// export default permission
 

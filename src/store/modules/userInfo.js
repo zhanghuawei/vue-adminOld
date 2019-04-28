@@ -1,24 +1,25 @@
-import { setToken, getToken, removeToken } from '@/utils/auth.js'
+import { setToken, removeToken } from '@/utils/auth.js'
 import { userLogin } from '@/api/api.js'
 
 const userInfo = {
   state: {
-    loginName: '',
-    roles: '',
-    token: getToken()
+    userInfo: {},
+    roles: []
   },
 
   mutations: {
-    SET_NAME: (state, loginName) => {
-      state.loginName = loginName
-    },
-    SET_TOKEN: (state, token) => {
-      state.token = token
+    SET_USERINFO: (state, userInfo) => {
+      sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+      state.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
     },
     SET_ROLES: (state, roles) => {
-      state.roles = roles
+      sessionStorage.setItem('roles', JSON.stringify(roles))
+      state.roles = JSON.parse(sessionStorage.getItem('roles'))
+    },
+    CLAER_USERINFO: (state) => {
+      sessionStorage.clear()
+      state.userInfo = {}
     }
-
   },
 
   actions: {
@@ -26,9 +27,8 @@ const userInfo = {
       return new Promise((resolve, reject) => {
         debugger
         userLogin(data).then(response => {
-          commit('SET_NAME', response.loginName)
-          commit('SET_TOKEN', response.token)
-          commit('SET_ROLES', response.roles)
+          commit('SET_USERINFO', response.data)
+          commit('SET_ROLES', response.data.roles)
           setToken(response.token)
           resolve(response)
         }).catch(error => {
@@ -39,7 +39,8 @@ const userInfo = {
     quit({ commit }, data) {
       return new Promise((resolve, reject) => {
         removeToken()
-        sessionStorage.clear()
+        commit('CLAER_USERINFO')
+        resolve()
       })
     }
   }

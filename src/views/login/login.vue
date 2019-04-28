@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { userLogin } from '@/api/api.js'
 
 export default {
   name: 'Login',
@@ -34,7 +33,6 @@ export default {
   methods: {
     submit() {
       this.$store.dispatch('login', this.loginData).then(res => {
-        debugger
         this.$router.push('/index')
       })
     }

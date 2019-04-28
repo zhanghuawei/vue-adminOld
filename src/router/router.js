@@ -5,16 +5,16 @@ import Layout from '@/views/layout/layout.vue'
 Vue.use(Router)
 export const constantRouterMap = [
   {
-    path: '/',
+    path: '/login',
     // component: Layout,
-    redirect: '/login', // 重定向地址，在面包屑中点击会重定向去的地址
+    // redirect: '/login', // 重定向地址，在面包屑中点击会重定向去的地址
     hidden: true, // 不在侧边栏线上
     alwaysShow: true, // 一直显示根路由
     meta: { title: 'login', icon: 'lock', roles: ['admin', 'editor'] }, // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
     component: () => import('@/views/login/login.vue'),
     children: [
       {
-        path: 'login',
+        path: '',
         component: () => import('@/views/login/login.vue'),
         name: 'login',
         meta: {
