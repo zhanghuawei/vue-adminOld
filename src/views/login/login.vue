@@ -30,6 +30,9 @@ export default {
       loginData: {}
     }
   },
+  mounted() {
+    sessionStorage.clear()
+  },
   methods: {
     submit() {
       this.$store.dispatch('login', this.loginData).then(res => {
