@@ -5,6 +5,9 @@ import Layout from '@/views/layout/layout.vue'
 Vue.use(Router)
 export const constantRouterMap = [
   {
+    path: '/',
+    redirect: '/login' // 重定向地址，在面包屑中点击会重定向去的地址
+  }, {
     path: '/login',
     // redirect: '/login', // 重定向地址，在面包屑中点击会重定向去的地址
     hidden: true, // 不在侧边栏线上
@@ -109,3 +112,18 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
+
+const router = createRouter()
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
+
+export default router
+
+// export default new Router({
+//   // mode: 'history',
+//   // base: process.env.BASE_URL,
+//   routes: constantRouterMap
+// })

@@ -1,10 +1,12 @@
 import { setToken, removeToken } from '@/utils/auth.js'
 import { userLogin } from '@/api/api.js'
+import router, { resetRouter } from '@/router/router'
 
 const userInfo = {
   state: {
     userInfo: {},
-    roles: []
+    roles: [],
+    addRoutes: []
   },
 
   mutations: {
@@ -23,6 +25,10 @@ const userInfo = {
   },
 
   actions: {
+    /**
+       *    在登陆的时候有需要弹窗短信验证，可以把登陆要设置的内容放在弹窗点击确定时设置一下，把提交放在此文件 列login提交方法
+       *    @param {*} data 登陆传参数
+       */
     login({ commit }, data) {
       return new Promise((resolve, reject) => {
         userLogin(data).then(response => {
@@ -39,6 +45,8 @@ const userInfo = {
       return new Promise((resolve, reject) => {
         removeToken()
         commit('CLAER_USERINFO')
+        resetRouter() // 路由重置
+        location.reload()// 退出刷新页面会跳转到登陆页面
         resolve()
       })
     }

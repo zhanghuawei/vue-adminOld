@@ -4,7 +4,7 @@ import { Message } from 'element-ui'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // progress 样式
 import { getToken } from '@/utils/auth' // 对token操作
-import { permission } from '@/utils/permission'
+import { permission, constantRouterMapLength } from '@/utils/permission'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
@@ -26,8 +26,14 @@ router.beforeEach((to, from, next) => {
           next(to.path)
         })
       } else {
+        if (router.options.routes.length === constantRouterMapLength) {
+          next('/login')
+        }
         next()
       }
+      // roles 介绍
+      // 如果是返回的是路由没有角色 直接 next() 在登陆的时候路由已生成 在stroe userInfo.js中
+      // netx()
     }
   } else { // token不存在
     if (whiteList.indexOf(to.path) !== -1) { // 白名单路由判断

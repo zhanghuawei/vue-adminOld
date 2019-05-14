@@ -1,4 +1,6 @@
-import { asyncRouterMap } from '@/router/router'
+import { constantRouterMap, asyncRouterMap } from '@/router/router'
+
+export const constantRouterMapLength = constantRouterMap.length
 
 export function permission(roles) {
   return new Promise(resolve => {
