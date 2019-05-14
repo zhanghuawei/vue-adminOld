@@ -106,9 +106,9 @@ export const asyncRouterMap = [
     component: () => import('@/views/demo/demo.vue')
   }
 ]
-export default new Router({
-  // mode: 'history',
-  // base: process.env.BASE_URL,
+
+const createRouter = () => new Router({
+  // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })

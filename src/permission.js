@@ -1,10 +1,10 @@
 import router from './router/router'
 import store from './store'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // progress 样式
 import { getToken } from '@/utils/auth' // 对token操作
-import { permission, constantRouterMapLength } from '@/utils/permission'
+import { constantRouterMapLength } from '@/utils/permission'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
