@@ -25,11 +25,10 @@ const userInfo = {
   actions: {
     login({ commit }, data) {
       return new Promise((resolve, reject) => {
-        debugger
         userLogin(data).then(response => {
           commit('SET_USERINFO', response.data)
           commit('SET_ROLES', response.data.roles)
-          setToken(response.token)
+          setToken(response.data.token)
           resolve(response)
         }).catch(error => {
           reject(error)

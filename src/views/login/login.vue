@@ -30,10 +30,13 @@ export default {
       loginData: {}
     }
   },
+  mounted() {
+    sessionStorage.clear()
+  },
   methods: {
     submit() {
       this.$store.dispatch('login', this.loginData).then(res => {
-        this.$router.push('/index')
+        this.$router.push({ path: '/index' })
       })
     }
   }
@@ -42,8 +45,9 @@ export default {
 
 <style lang="scss">
 .login {
-  width: 300px;
-  margin: 10% auto;
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 10%;
   .el-button {
     width: 100%;
   }

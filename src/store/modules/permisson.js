@@ -1,29 +1,18 @@
 import { constantRouterMap, asyncRouterMap } from '@/router/router'
 
-export function permission(roles, route) {
-  return new Promise(resolve => {
-    const arr = []
-    asyncRouterMap.forEach(route => {
-      if (roles.some(role => route.meta.role.includes(role))) {
-        arr.push(route)
-      }
-    })
-    resolve(arr)
-  })
-}
-
 /**
- * 通过meta.role普安段是否与当前的用户权限匹配
+ * 通过meta.role判断是否与当前用户权限匹配
  * @param roles
  * @param route
  */
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.role.includes(role))
+    return roles.some(role => route.meta.roles.includes(role))
   } else {
     return true
   }
 }
+
 /**
  * 递归过滤异步路由表，返回符合用户角色权限的路由表
  * @param routes asyncRouterMap
@@ -35,7 +24,7 @@ function filterAsyncRouter(routes, roles) {
   routes.forEach(route => {
     const tmp = { ...route }
     if (hasPermission(roles, tmp)) {
-      if (tmp.children) { // 对children的根据roles权限进行判断，添加到路由中
+      if (tmp.children) {
         tmp.children = filterAsyncRouter(tmp.children, roles)
       }
       res.push(tmp)
@@ -45,7 +34,7 @@ function filterAsyncRouter(routes, roles) {
   return res
 }
 
-const permission1 = {
+const permission = {
   state: {
     routers: [],
     addRouters: []
@@ -57,8 +46,10 @@ const permission1 = {
     }
   },
   actions: {
-    GenerateRoutes({ commit }, roles) {
+    GenerateRoutes({ commit }, data) {
       return new Promise(resolve => {
+        // const { roles } = data
+        const roles = data
         let accessedRouters
         if (roles.includes('admin')) {
           accessedRouters = asyncRouterMap
@@ -66,11 +57,11 @@ const permission1 = {
           accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
         }
         commit('SET_ROUTERS', accessedRouters)
-        resolve()
+        resolve(accessedRouters)
       })
     }
   }
 }
 
-// export default permission
+export default permission
 

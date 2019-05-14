@@ -8,23 +8,22 @@ import { permission } from '@/utils/permission'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login'] //
-router.options.routes
-const roles = JSON.parse(sessionStorage.getItem('roles'))
-router.beforeEach(async(to, from, next) => {
+const whiteList = ['/login'] // 路由白名单
+router.beforeEach((to, from, next) => {
+  console.log(111)
   NProgress.start()
-  debugger
-  const hasToken = getToken()
-  if (hasToken && hasToken !== undefined) { // token存在
+  const roles = JSON.parse(sessionStorage.getItem('roles')) || []
+  const hasToken = getToken() || ''
+  if (hasToken && hasToken !== 'undefined') { // token存在
     if (whiteList.indexOf(to.path) !== -1) { // token存在进入白名单直接跳转
       next()
-      NProgress.done()
     } else { // token存判断根据角色生成路由
-      if (router.options.routes.length === whiteList.length) { // 判断当前用户是否已拉取完user_info信息
-        permission(roles).then(res => {
-          debugger
+      if (router.options.routes.length === whiteList.length && roles) { // 判断当前用户是否已拉取完user_info信息
+        store.dispatch('GenerateRoutes', roles).then((res) => {
+          router.options.routes = router.options.routes.concat(res)
           router.addRoutes(res)
-          next()
+          console.log('路由已生成')
+          next(to.path)
         })
       } else {
         next()
@@ -35,6 +34,7 @@ router.beforeEach(async(to, from, next) => {
       next()
     } else { // token不存在跳转主页
       next('/login')
+      NProgress.done()
     }
   }
 })
