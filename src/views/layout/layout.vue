@@ -12,6 +12,7 @@ import AppMain from './appMain.vue'
 import Sidebar from './sidebar.vue'
 import TabsView from './tabsView.vue'
 export default {
+  name: 'Layout',
   components: { TabsView, Sidebar, AppMain }
 }
 </script>

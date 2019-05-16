@@ -8,7 +8,7 @@ import { constantRouterMapLength } from '@/utils/permission'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login'] // 路由白名单
+const whiteList = ['/', '/login'] // 路由白名单
 router.beforeEach((to, from, next) => {
   console.log(111)
   NProgress.start()
