@@ -36,7 +36,7 @@ export default {
   methods: {
     submit() {
       this.$store.dispatch('login', this.loginData).then(res => {
-        this.$router.push({ path: '/index' })
+        this.$router.push({ path: '/dashboard' })
       })
     }
   }

@@ -18,14 +18,15 @@ export const asyncRouterMap = [
   {
     path: '/dashboard',
     redirect: '/dashboard/index',
+    name: 'Layout',
     hidden: false,
     alwaysShow: true, // 一直显示根路由
-    meta: { title: '首页', icon: 'el-icon-c-scale-to-original', roles: ['admin', 'salesman', 'user'] }, // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
+    meta: { title: '首页', icon: 'iconfont iconhome-alt', roles: ['admin', 'salesman', 'user'] }, // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'demo',
+        name: 'Dashboard',
         meta: {
           title: 'login',
           icon: 'lock', // 图标
@@ -37,29 +38,54 @@ export const asyncRouterMap = [
       }
     ]
   }, {
-    path: '/dashboard/demo',
+    path: '/demo',
+    redirect: '/demo/index',
     hidden: false,
     alwaysShow: true, // 一直显示根路由
-    meta: { title: '测试', icon: 'lock', roles: ['admin', 'salesman', 'user'] },
-    component: () => import('@/views/demo/demo.vue')
-  }, {
-    path: '/admin',
-    hidden: false, // 在侧边栏线上
-    alwaysShow: true, // 一直显示根路由
-    // redirect: '/admin/index',
-    meta: { title: '管理员', icon: 'lock', roles: ['admin', 'salesman', 'user'] }, // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
+    meta: { title: '测试', icon: 'iconfont iconceshi', roles: ['admin', 'salesman', 'user'] },
     component: Layout,
     children: [
       {
-        path: '/admin/index',
+        path: 'index',
+        name: 'Demo',
         meta: {
-          title: 'admin',
+          title: 'Demo',
+          icon: 'lock', // 图标
+          // role: ['admin', 'editor'], // 或者你可以给每一个子路由设置自己的权限
+          breadcrumb: false, // 如果设置为false，则不会在breadcrumb面包屑中显示
+          noCache: false // 不会被 <keep-alive> 缓存
+        },
+        component: () => import('@/views/demo/demo.vue')
+      }
+    ]
+  }, {
+    path: '/admin',
+    redirect: '/admin/index',
+    hidden: false, // 在侧边栏线上
+    alwaysShow: false, // 一直显示根路由
+    meta: { title: '管理员', icon: 'iconfont iconguanliyuan', roles: ['admin', 'salesman', 'user'] }, // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        meta: {
+          title: '管理员一',
           icon: 'lock', // 图标
           // role: ['admin', 'editor'], // 或者你可以给每一个子路由设置自己的权限
           breadcrumb: false, // 如果设置为false，则不会在breadcrumb面包屑中显示
           noCache: true // 不会被 <keep-alive> 缓存
         },
-        component: () => import('@/views/admin/admin.vue')
+        component: () => import('@/views/admin/adminOne.vue')
+      }, {
+        path: 'index2',
+        meta: {
+          title: '管理员二',
+          icon: 'lock', // 图标
+          // role: ['admin', 'editor'], // 或者你可以给每一个子路由设置自己的权限
+          breadcrumb: false, // 如果设置为false，则不会在breadcrumb面包屑中显示
+          noCache: true // 不会被 <keep-alive> 缓存
+        },
+        component: () => import('@/views/admin/adminTwo.vue')
       }
     ]
   }

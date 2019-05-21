@@ -1,34 +1,13 @@
-// 基础样式
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th,textarea, td {
-    border: 0 none;
-    font-size: inherit;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
+.font-size-18{
+    font-size: 18px;
 }
- 
-html,body {
+.iconfont {
+    text-align: center; 
+    font-size: 18px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+.img {
     width: 100%;
-    height: 100%;
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+    vertical-align: middle;
 }
-html {
-    font-size: 100px;
-}
-body {
-    font-size: 0.14rem;
-}
-//公共样式
-.clearfix:after{
-    content: " ";
-    display: block;
-    clear:both;
-}
-ul,ol,li{
-    list-style: none;
-}
-a {
-    text-decoration: none;
-}
-

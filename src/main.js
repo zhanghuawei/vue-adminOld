@@ -5,6 +5,8 @@ import App from './App.vue'
 import router from './router/router'
 import store from './store/index'
 
+import '@/icons/iconfont/iconfont.css'
+
 import '@/styles/index.scss'
 import '@/permission'
 

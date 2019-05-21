@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar wrap-class="scrollbar-wrapper">
+  <el-scrollbar class="sidebar" wrap-class="scrollbar-wrapper">
     <el-menu
       :default-active="$route.path"
       :collapse="isCollapse"
@@ -15,14 +15,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import sidebarItem from './components/sidebarItem.vue'
+import sidebarItem from './sidebarItem.vue'
 import variables from '@/styles/variables.scss'
 export default {
   name: 'Sidebar',
   components: { sidebarItem },
   data() {
     return {
-      isCollapse: false
+      isCollapse1: this.$store.state.app.sidebarToggle
     }
   },
   computed: {
@@ -31,6 +31,9 @@ export default {
     ]),
     variables() {
       return variables
+    },
+    isCollapse() {
+      return this.$store.state.app.sidebarToggle
     }
   },
   mounted() {
@@ -38,3 +41,14 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.sidebar {
+    .el-menu-item {
+        min-width:178px !important;
+    }
+    .el-menu a,.el-submenu__title {
+        text-align: left;
+    }
+}
+</style>
+
