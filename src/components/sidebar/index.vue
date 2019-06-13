@@ -50,5 +50,20 @@ export default {
         text-align: left;
     }
 }
+.sidebarHidden {
+    .el-menu-item {
+        min-width:15px !important;
+    }
+    .el-menu-item {
+        overflow: hidden;
+        width: 24px;
+        padding: 0 !important;
+        span {
+            width: 0;
+            display: none;
+        }
+
+    }
+}
 </style>
 

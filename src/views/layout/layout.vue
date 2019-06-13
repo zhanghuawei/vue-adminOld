@@ -3,6 +3,7 @@
     <sidebar class="sidebar-container" />
     <div class="main-container">
       <navbar />
+      <tagsView />
       <TabsView />
       <AppMain />
     </div>
@@ -11,12 +12,13 @@
 <script>
 import Sidebar from '@/components/sidebar/index.vue'
 import navbar from '@/components/navbar/navbar.vue'
+import tagsView from '@/components/tagsView/tagsView.vue'
 import AppMain from './appMain.vue'
 import TabsView from './tabsView.vue'
 
 export default {
   name: 'Layout',
-  components: { Sidebar, navbar, TabsView, AppMain }
+  components: { Sidebar, navbar, tagsView, TabsView, AppMain }
 }
 </script>
 <style lang="scss">

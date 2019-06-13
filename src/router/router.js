@@ -68,6 +68,7 @@ export const asyncRouterMap = [
     children: [
       {
         path: 'index',
+        name: 'index',
         meta: {
           title: '管理员一',
           icon: 'lock', // 图标
@@ -78,6 +79,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/admin/adminOne.vue')
       }, {
         path: 'index2',
+        name: 'index2',
         meta: {
           title: '管理员二',
           icon: 'lock', // 图标

@@ -1,9 +1,9 @@
 <template>
   <div>
     tabs-view
-    <div @click="quit">
+    <!-- <div @click="quit">
       退出
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
