@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!item.hidden&&item.children" class="menu-wrapper">
-    <router-link v-if="item.alwaysShow" :to="item.redirect">
+  <div v-if="!item.hidden&&childrenLen>0" class="menu-wrapper">
+    <router-link v-if="childrenLen===1" :to="item.redirect">
       <el-menu-item :index="item.path">
         <template slot="title">
           <i :class="item.meta.icon" />
