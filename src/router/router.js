@@ -17,18 +17,17 @@ export const constantRouterMap = [
 export const asyncRouterMap = [
   {
     path: '/dashboard',
-    redirect: '/dashboard/index',
     name: 'Layout',
     hidden: false, // 在侧边栏线上
-    alwaysShow: false, // 一直显示根路由
+    alwaysShow: true, // 一直显示根路由
     meta: { title: '首页', icon: 'iconfont iconhome-alt', roles: ['admin', 'salesman', 'user'] }, // 你可以在根路由设置权限，这样它下面所以的子路由都继承了这个权限
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'Dashboard',
         meta: {
-          title: 'login',
+          title: '首页',
           icon: 'lock', // 图标
           // role: ['admin', 'editor'], // 或者你可以给每一个子路由设置自己的权限
           breadcrumb: false, // 如果设置为false，则不会在breadcrumb面包屑中显示
@@ -41,7 +40,7 @@ export const asyncRouterMap = [
     path: '/admin',
     redirect: '/admin/index',
     hidden: false,
-    alwaysShow: true,
+    alwaysShow: false,
     meta: { title: '管理员', icon: 'iconfont iconguanliyuan', roles: ['admin'] },
     component: Layout,
     children: [

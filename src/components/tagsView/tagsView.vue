@@ -20,7 +20,7 @@ export default {
     return {
       tags: [],
       index: [{
-        path: '/dashboard/index',
+        path: '/dashboard',
         name: 'Dashboard',
         hidden: false,
         alwaysShow: true, // 一直显示根路由

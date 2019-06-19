@@ -1,14 +1,34 @@
 <template>
-  <el-scrollbar class="sidebar" wrap-class="scrollbar-wrapper">
+  <el-scrollbar :class="{'sidebar':true,'sidebar-is':isCollapse}" wrap-class="scrollbar-wrapper">
     <el-menu
+      class="el-menu-vertical-demo"
       :default-active="$route.path"
       :collapse="isCollapse"
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
       :active-text-color="variables.menuActiveText"
       mode="vertical"
+      @select="handleSelect"
     >
-      <sidebar-item v-for="(route,index) in permission_routers" :key="route.path" :index="index" :item="route" :base-path="route.path" />
+      <!-- <sidebar-item v-for="(route,index) in permission_routers" :key="route.path" :index="index" :item="route" :base-path="route.path" /> -->
+      <template v-for="item in permission_routers">
+        <template v-if="!item.hiddle">
+          <el-menu-item v-if="item.alwaysShow" :key="item.path" :index="item.path">
+            <i :class="item.meta.icon" />
+            <span slot="title">{{ item.meta.title }}</span>
+          </el-menu-item>
+
+          <el-submenu v-else :key="item.path" :index="item.path">
+            <template slot="title">
+              <i :class="item.meta.icon" />
+              <span>{{ item.meta.title }}</span>
+            </template>
+            <el-menu-item v-for="(v,vIndex) in item.children" :key="vIndex" :index="item.path+'/'+v.path">
+              {{ v.meta.title }}
+            </el-menu-item>
+          </el-submenu>
+        </template>
+      </template>
     </el-menu>
   </el-scrollbar>
 </template>
@@ -38,35 +58,32 @@ export default {
   },
   mounted() {
     console.log(this.addRouters)
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      this.$router.push({ 'path': key })
+      console.log(key, keyPath)
+    }
   }
 }
 </script>
 <style lang="scss">
 .sidebar {
-    .el-menu-item {
-        min-width:180px !important;
-    }
-    .el-menu a,.el-submenu__title {
+    .el-menu,.el-submenu__title {
         text-align: left;
+    }
+    .el-scrollbar__view {
+        height: 100%;
+    }
+    .el-menu {
+        width: 180px;
+        height: 100%;
+        overflow: hidden;
     }
 }
-.sidebarHidden {
-    .el-menu-item {
-        min-width:15px !important;
-    }
-    .el-menu-item {
-        overflow: hidden;
-        width: 24px;
-        padding: 0 !important;
-        text-align: left;
-        span {
-            width: 0;
-            display: none;
-        }
-
-    }
-    .el-submenu__title {
-        text-align: left;
+.sidebar-is {
+    .el-menu {
+        width: 100%;
     }
 }
 </style>

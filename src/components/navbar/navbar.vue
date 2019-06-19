@@ -41,7 +41,7 @@ export default {
         padding: 0 15px;
         line-height: 50px;
         cursor: pointer;
-        transition: all .2s linear;
+
     }
     .transform-180 {
         transform: rotate(-180deg);
