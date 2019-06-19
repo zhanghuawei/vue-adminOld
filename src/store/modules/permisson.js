@@ -50,12 +50,13 @@ const permission = {
       return new Promise(resolve => {
         // const { roles } = data
         const roles = data
-        let accessedRouters
-        if (roles.includes('admin')) {
-          accessedRouters = asyncRouterMap
-        } else {
-          accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
-        }
+        // let accessedRouters // 如果管理员有用户和业务员的权限，可以放开此代码 把59行注释掉
+        // if (roles.includes('admin')) {
+        //   accessedRouters = asyncRouterMap
+        // } else {
+        //   accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+        // }
+        const accessedRouters = filterAsyncRouter(asyncRouterMap, roles) //
         commit('SET_ROUTERS', accessedRouters)
         resolve(accessedRouters)
       })

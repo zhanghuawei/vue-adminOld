@@ -2,20 +2,27 @@
   <div class="login">
     <el-form
       :label-position="labelPosition"
-      label-width="80px"
       :model="loginData"
     >
-      <el-form-item label="用户名">
-        <el-input v-model="loginData.username" />
+      <el-form-item>
+        <el-input v-model="loginData.username" prefix-icon="el-icon-user" />
       </el-form-item>
-      <el-form-item label="密码">
-        <el-input v-model="loginData.password" />
+      <el-form-item>
+        <el-input v-model="loginData.password" type="password" prefix-icon="el-icon-view" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submit">
           登陆
         </el-button>
       </el-form-item>
+      <div class="btnList">
+        <el-button type="primary" @click="userSubmit">
+          用户
+        </el-button>
+        <el-button type="primary" @click="salesmanSubmit">
+          业务员
+        </el-button>
+      </div>
     </el-form>
   </div>
 </template>
@@ -27,7 +34,7 @@ export default {
   data() {
     return {
       labelPosition: 'right',
-      loginData: {}
+      loginData: { username: 'admin', password: 'admin' }
     }
   },
   mounted() {
@@ -36,6 +43,16 @@ export default {
   methods: {
     submit() {
       this.$store.dispatch('login', this.loginData).then(res => {
+        this.$router.push({ path: '/dashboard' })
+      })
+    },
+    userSubmit() {
+      this.$store.dispatch('userFun', this.loginData).then(res => {
+        this.$router.push({ path: '/dashboard' })
+      })
+    },
+    salesmanSubmit() {
+      this.$store.dispatch('salesmanFun', this.loginData).then(res => {
         this.$router.push({ path: '/dashboard' })
       })
     }
@@ -50,6 +67,10 @@ export default {
     padding-top: 10%;
   .el-button {
     width: 100%;
+  }
+  .btnList {
+      display: flex;
+      justify-content:space-between;
   }
 }
 </style>

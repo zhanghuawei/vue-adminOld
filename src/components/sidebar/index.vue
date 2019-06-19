@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 .sidebar {
     .el-menu-item {
-        min-width:178px !important;
+        min-width:180px !important;
     }
     .el-menu a,.el-submenu__title {
         text-align: left;
@@ -58,11 +58,15 @@ export default {
         overflow: hidden;
         width: 24px;
         padding: 0 !important;
+        text-align: left;
         span {
             width: 0;
             display: none;
         }
 
+    }
+    .el-submenu__title {
+        text-align: left;
     }
 }
 </style>

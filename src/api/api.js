@@ -7,3 +7,18 @@ export function userLogin(data) {
     data: data
   })
 }
+
+export function userSubmit(data) {
+  return request({
+    url: '/userSubmit',
+    method: 'post',
+    data: data
+  })
+}
+export function salesmanSubmit(data) {
+  return request({
+    url: '/salesmanSubmit',
+    method: 'post',
+    data: data
+  })
+}
