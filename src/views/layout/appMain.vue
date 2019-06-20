@@ -23,10 +23,10 @@ export default {
 
 <style scoped>
 .app-main {
-  min-height: calc(100vh - 84px);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - 84px);
+    padding: 15px;
 }
 </style>
 

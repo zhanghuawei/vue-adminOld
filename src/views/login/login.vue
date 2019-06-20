@@ -34,7 +34,10 @@ export default {
   data() {
     return {
       labelPosition: 'right',
-      loginData: { username: 'admin', password: 'admin' }
+      loginData: {
+        username: sessionStorage.getItem('Username') || 'admin',
+        password: 'admin'
+      }
     }
   },
   mounted() {

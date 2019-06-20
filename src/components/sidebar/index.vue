@@ -79,11 +79,12 @@ export default {
         width: 180px;
         height: 100%;
         overflow: hidden;
+        transition: all .1s linear;
     }
 }
 .sidebar-is {
     .el-menu {
-        width: 100%;
+        width: 58px;
     }
 }
 </style>

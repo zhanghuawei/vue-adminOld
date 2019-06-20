@@ -1,4 +1,4 @@
-import { setToken, removeToken } from '@/utils/auth.js'
+import { setToken, removeToken, setUsername } from '@/utils/auth.js'
 import { userLogin, userSubmit, salesmanSubmit } from '@/api/api.js'
 import { resetRouter } from '@/router/router'
 
@@ -35,6 +35,7 @@ const userInfo = {
           commit('SET_USERINFO', response.data)
           commit('SET_ROLES', response.data.roles)
           setToken(response.data.token)
+          setUsername(data.username)
           resolve(response)
         }).catch(error => {
           reject(error)
@@ -47,6 +48,7 @@ const userInfo = {
           commit('SET_USERINFO', response.data)
           commit('SET_ROLES', response.data.roles)
           setToken(response.data.token)
+          setUsername(data.username)
           resolve(response)
         }).catch(error => {
           reject(error)
@@ -59,6 +61,7 @@ const userInfo = {
           commit('SET_USERINFO', response.data)
           commit('SET_ROLES', response.data.roles)
           setToken(response.data.token)
+          setUsername(data.username)
           resolve(response)
         }).catch(error => {
           reject(error)

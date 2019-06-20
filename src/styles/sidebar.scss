@@ -1,10 +1,11 @@
 #app {
     // 主体区域 Main container
   .main-container {
-    min-height: 100%;
-    transition: margin-left .28s;
-    margin-left: $sideBarWidth;
     position: relative;
+    min-height: 100%;
+    margin-left: $sideBarWidth;
+    transition: all .1s linear;
+   
   }
   .sidebar-container {
     position: fixed;
@@ -16,6 +17,8 @@
     height: 100%;
     font-size: 0px;
     background-color: rgb(48, 65, 86);
-    transition: width .28s;
+  }
+  .margin-left-58 {
+      margin-left: 58px;
   }
 }

@@ -5,18 +5,22 @@
     </div>
     <breadcrumb class="navbar-breadcrumb" />
     <div class="navbar-other">
-      <span @click="quit">退出</span>
+      <span>{{ username }}</span> | <span @click="quit">退出</span>
     </div>
   </div>
 </template>
 <script>
 import breadcrumb from './breadcrumb.vue'
+import variables from '@/styles/variables.scss'
 
 export default {
   components: { breadcrumb },
   computed: {
     unfold() {
       return this.$store.state.app.sidebarToggle
+    },
+    username() {
+      return sessionStorage.getItem('Username') || ''
     }
   },
   mounted() {},

@@ -17,8 +17,9 @@ service.interceptors.request.use(
       // 配置token
       config.headers['X-Token'] = getToken()
     }
-    config.headers['Content-Type'] = 'application/json;charset=UTF-8'
-    config.headers['Access-Control-Allow-Origin'] = 'http://rap2api.taobao.org/app/mock/162114'
+    // config.headers['Content-Type'] = 'application/json;charset=UTF-8'
+    // config.headers['Access-Control-Allow-Origin'] = '*'
+    // config.headers['Access-Control-Request-Method'] = 'OPTIONS,POST,GET,PUT,PATCH'
     return config
   },
   error => {

@@ -19,13 +19,7 @@ export default {
   data() {
     return {
       tags: [],
-      index: [{
-        path: '/dashboard',
-        name: 'Dashboard',
-        hidden: false,
-        alwaysShow: true, // 一直显示根路由
-        meta: { title: '首页' }
-      }]
+      index: []
     }
   },
   computed: {
