@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar clearfix">
+  <div ref="navbar" class="navbar clearfix">
     <div :class="{'navbar-icon':true,'transform-180':unfold}" @click="sidebarToggle">
       <img class="logo-img img" src="@/icons/left-indent.svg" alt="中国石油工程建设有限公司">
     </div>
@@ -19,6 +19,7 @@ export default {
       return this.$store.state.app.sidebarToggle
     }
   },
+  mounted() {},
   methods: {
     sidebarToggle() {
       this.$store.dispatch('sidebarToggle')
