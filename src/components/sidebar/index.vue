@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar :class="{'sidebar':true,'sidebar-is':isCollapse}" wrap-class="scrollbar-wrapper">
+  <el-scrollbar class="sidebar" :class="{'sidebar-is':isCollapse}" wrap-class="scrollbar-wrapper">
     <el-menu
       class="el-menu-vertical-demo"
       :default-active="$route.path"
@@ -13,7 +13,7 @@
       <!-- <sidebar-item v-for="(route,index) in permission_routers" :key="route.path" :index="index" :item="route" :base-path="route.path" /> -->
       <template v-for="item in permission_routers">
         <template v-if="!item.hiddle">
-          <el-menu-item v-if="item.alwaysShow" :key="item.path" :index="item.path">
+          <el-menu-item v-if="!item.alwaysShow" :key="item.path" :index="item.path">
             <i :class="item.meta.icon" />
             <span slot="title">{{ item.meta.title }}</span>
           </el-menu-item>
@@ -23,9 +23,11 @@
               <i :class="item.meta.icon" />
               <span>{{ item.meta.title }}</span>
             </template>
-            <el-menu-item v-for="(v,vIndex) in item.children" :key="vIndex" :index="item.path+'/'+v.path">
-              {{ v.meta.title }}
-            </el-menu-item>
+            <template v-for="(v,vIndex) in item.children">
+              <el-menu-item v-if="!v.hidden" :key="vIndex" :index="item.path+'/'+v.path">
+                {{ v.meta.title }}
+              </el-menu-item>
+            </template>
           </el-submenu>
         </template>
       </template>
@@ -37,6 +39,7 @@
 import { mapGetters } from 'vuex'
 import sidebarItem from './sidebarItem.vue'
 import variables from '@/styles/variables.scss'
+
 export default {
   name: 'Sidebar',
   components: { sidebarItem },
@@ -72,8 +75,8 @@ export default {
     .el-menu,.el-submenu__title {
         text-align: left;
     }
-    .el-scrollbar__view {
-        height: 100%;
+    .el-scrollbar__wrap {
+        overflow-x: hidden;
     }
     .el-menu {
         width: 180px;
