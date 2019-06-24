@@ -1,6 +1,18 @@
 module.exports = {
   publicPath: './',
-  productionSourceMap: false
+  productionSourceMap: false,
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://rap2api.taobao.org/app/mock/162114',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  }
 //   optimization: {
 //     concatenateModules: true
 //   }
