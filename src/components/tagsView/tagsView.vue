@@ -29,15 +29,17 @@ export default {
   },
   watch: {
     $route(val) {
-      console.log(val)
       this.addTags()
       // this.moveToCurrentTag()
     }
   },
+  mounted() {
+    this.addTags()
+  },
   methods: {
     addTags() {
-      const { name } = this.$route
-      if (name) {
+      const { title } = this.$route.meta
+      if (title) {
         this.$store.dispatch('addView', this.$route)
       }
       return false
@@ -63,6 +65,7 @@ export default {
       this.$store.dispatch('delView', tag)
     },
     handleClick(tag) {
+      console.log(this.$route)
       this.$router.push({ path: tag.path })
     }
   }

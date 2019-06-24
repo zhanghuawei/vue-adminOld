@@ -1,7 +1,7 @@
 <template>
   <div ref="navbar" class="navbar clearfix">
     <div :class="{'navbar-icon':true,'transform-180':unfold}" @click="sidebarToggle">
-      <img class="logo-img img" src="@/icons/left-indent.svg" alt="中国石油工程建设有限公司">
+      <img class="logo-img img" src="@/icons/left-indent.svg">
     </div>
     <breadcrumb class="navbar-breadcrumb" />
     <div class="navbar-other">
@@ -29,7 +29,6 @@ export default {
       this.$store.dispatch('sidebarToggle')
     },
     quit() {
-      console.log(111)
       this.$store.dispatch('quit').then(res => {
         console.log('quit')
       })

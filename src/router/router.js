@@ -17,7 +17,6 @@ export const constantRouterMap = [
 export const asyncRouterMap = [
   {
     path: '/dashboard',
-    name: 'Layout',
     hidden: false, // 在侧边栏线上 false显示 true隐藏
     alwaysShow: false, // 是否显示下拉菜单，true显示 false不显示 为false时子路由hidden和meta都可以去掉
     meta: { title: '首页', icon: 'iconfont iconhome-alt', roles: ['admin', 'salesman', 'user'] }, // roles 路由权限配置
@@ -69,12 +68,11 @@ export const asyncRouterMap = [
     path: '/salesman',
     hidden: false,
     alwaysShow: false,
-    redirect: '/salesman/index',
     meta: { title: '业务员', icon: 'iconfont iconguanliyuan', roles: ['salesman'] },
     component: Layout,
     children: [
       {
-        path: '/salesman/index',
+        path: '',
         meta: {
           title: 'login',
           icon: 'lock',
@@ -93,7 +91,7 @@ export const asyncRouterMap = [
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: '',
         meta: {
           title: 'login',
           icon: 'lock',
@@ -112,8 +110,9 @@ export const asyncRouterMap = [
     children: [
       {
         path: '',
+        name: 'Documents',
         meta: {
-          title: '登录',
+          title: '文档',
           icon: 'lock',
           breadcrumb: false,
           noCache: false
