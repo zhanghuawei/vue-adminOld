@@ -5,6 +5,19 @@
         <div class="grid-content bg-purple">
           <h4>前端技术</h4>
           <p>vue2.0、vuex、vue-router、axios、ElementUI、sass和vue-cli3架构及其他插件</p>
+          <h4>代码下载、运行和打包步骤</h4>
+          <p class="documents-pre">
+            git clone https://github.com/zhanghuawei/vue-admin.git // 克隆地址
+          </p>
+          <p class="documents-pre">
+            npm install // 进入vue-admin文件夹，右键打开Git Bash Here进行命令执行安装依赖包
+          </p>
+          <p class="documents-pre">
+            npm run serve // 运行前端服务
+          </p>
+          <p class="documents-pre">
+            npm run build // 项目打包
+          </p>
           <h4>登录</h4>
           <p>1.登录成功返回数据格式</p>
           <pre class="documents-pre">

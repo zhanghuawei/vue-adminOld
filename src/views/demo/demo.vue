@@ -1,5 +1,5 @@
 <template>
-  <div>此为，管理员、业务员、用户，共有模块</div>
+  <h4>此模块具备管理员、业务员和用户，三个用户的权限</h4>
 </template>
 <script>
 export default {
