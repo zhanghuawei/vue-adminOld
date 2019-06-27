@@ -11,15 +11,15 @@
         <el-input v-model="loginData.password" type="password" prefix-icon="el-icon-view" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submit">
+        <el-button type="primary" @click="submit(['admin'])">
           登陆
         </el-button>
       </el-form-item>
       <div class="btnList">
-        <el-button type="primary" @click="userSubmit">
+        <el-button type="primary" @click="submit(['user'])">
           用户
         </el-button>
-        <el-button type="primary" @click="salesmanSubmit">
+        <el-button type="primary" @click="submit(['salesman'])">
           业务员
         </el-button>
       </div>
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Login',
   data() {
@@ -44,18 +43,10 @@ export default {
     sessionStorage.clear()
   },
   methods: {
-    submit() {
+    submit(val) {
+      debugger
+      this.loginData.roles = val
       this.$store.dispatch('login', this.loginData).then(res => {
-        this.$router.push({ path: '/dashboard' })
-      })
-    },
-    userSubmit() {
-      this.$store.dispatch('userFun', this.loginData).then(res => {
-        this.$router.push({ path: '/dashboard' })
-      })
-    },
-    salesmanSubmit() {
-      this.$store.dispatch('salesmanFun', this.loginData).then(res => {
         this.$router.push({ path: '/dashboard' })
       })
     }

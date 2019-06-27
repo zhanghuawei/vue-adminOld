@@ -31,41 +31,22 @@ const userInfo = {
        */
     login({ commit }, data) {
       return new Promise((resolve, reject) => {
-        userLogin(data).then(response => {
-          commit('SET_USERINFO', response.data)
-          commit('SET_ROLES', response.data.roles)
-          setToken(response.data.token)
-          setUsername(data.username)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
-      })
-    },
-    userFun({ commit }, data) {
-      return new Promise((resolve, reject) => {
-        userSubmit(data).then(response => {
-          commit('SET_USERINFO', response.data)
-          commit('SET_ROLES', response.data.roles)
-          setToken(response.data.token)
-          setUsername(data.username)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
-      })
-    },
-    salesmanFun({ commit }, data) {
-      return new Promise((resolve, reject) => {
-        salesmanSubmit(data).then(response => {
-          commit('SET_USERINFO', response.data)
-          commit('SET_ROLES', response.data.roles)
-          setToken(response.data.token)
-          setUsername(data.username)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
+        // userLogin(data).then(response => {
+        //   commit('SET_USERINFO', response.data)
+        //   commit('SET_ROLES', response.data.roles)
+        //   setToken(response.data.token)
+        //   setUsername(data.username)
+        //   resolve(response)
+        // }).catch(error => {
+        //   reject(error)
+        // })
+        debugger
+        data.token = 'token'
+        commit('SET_USERINFO', data)
+        commit('SET_ROLES', data.roles)
+        setToken(data.token)
+        setUsername(data.username)
+        resolve(data)
       })
     },
     quit({ commit }, data) {
