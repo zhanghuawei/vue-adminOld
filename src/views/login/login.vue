@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     submit(val) {
-      debugger
       this.loginData.roles = val
       this.$store.dispatch('login', this.loginData).then(res => {
         this.$router.push({ path: '/dashboard' })

@@ -40,7 +40,6 @@ const userInfo = {
         // }).catch(error => {
         //   reject(error)
         // })
-        debugger
         data.token = 'token'
         commit('SET_USERINFO', data)
         commit('SET_ROLES', data.roles)
