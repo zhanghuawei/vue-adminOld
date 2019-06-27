@@ -11,15 +11,15 @@
         <el-input v-model="loginData.password" type="password" prefix-icon="el-icon-view" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submit(['admin'])">
+        <el-button type="primary" @click="submit">
           登陆
         </el-button>
       </el-form-item>
       <div class="btnList">
-        <el-button type="primary" @click="submit(['user'])">
+        <el-button type="primary" @click="userSubmit">
           用户
         </el-button>
-        <el-button type="primary" @click="submit(['salesman'])">
+        <el-button type="primary" @click="salesmanSubmit">
           业务员
         </el-button>
       </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Login',
   data() {
@@ -40,12 +41,21 @@ export default {
     }
   },
   mounted() {
-    sessionStorage.clear()
+    sessionStorage.clear() // 跳转登录页重新登录
   },
   methods: {
-    submit(val) {
-      this.loginData.roles = val
+    submit() {
       this.$store.dispatch('login', this.loginData).then(res => {
+        this.$router.push({ path: '/dashboard' })
+      })
+    },
+    userSubmit() {
+      this.$store.dispatch('userFun', this.loginData).then(res => {
+        this.$router.push({ path: '/dashboard' })
+      })
+    },
+    salesmanSubmit() {
+      this.$store.dispatch('salesmanFun', this.loginData).then(res => {
         this.$router.push({ path: '/dashboard' })
       })
     }
