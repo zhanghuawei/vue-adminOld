@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b309e"],{2758:function(e,n,t){"use strict";t.r(n);var u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[e._v("此为，管理员、业务员、用户，共有模块")])},c=[],l={name:"Demo"},a=l,o=t("2877"),r=Object(o["a"])(a,u,c,!1,null,null,null);n["default"]=r.exports}}]);
