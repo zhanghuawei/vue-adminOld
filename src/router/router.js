@@ -158,6 +158,12 @@ export const asyncRouterMap = [
         component: () => import('@/views/demo/demo.vue')
       }
     ]
+  }, {
+    path: '/test',
+    hidden: false,
+    alwaysShow: false,
+    meta: { title: '测试', icon: 'iconfont iconceshi', roles: ['admin', 'salesman', 'user'] },
+    component: () => import('@/views/test/test.vue')
   }
 ]
 

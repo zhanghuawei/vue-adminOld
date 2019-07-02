@@ -17,7 +17,7 @@ export function userSubmit(data) {
 }
 export function salesmanSubmit(data) {
   return request({
-    url: '/salesmanSubmit',
+    url: 'http://rap2api.taobao.org/app/mock/162114/salesmanSubmit',
     method: 'post',
     data: data
   })

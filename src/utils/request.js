@@ -5,8 +5,6 @@ import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
-//   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
-  // baseURL: 'http://rap2api.taobao.org/app/mock/162114',
   baseURL: process.env.VUE_APP_BASE_API,
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
